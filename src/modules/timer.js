@@ -5,13 +5,12 @@ const timer = (deadline) => {
     const timerSeconds = document.getElementById('timer-seconds');
 
     const getTimeRemaning = () => {
-        const addZero = elem =>
-            (String(elem).length === 1) ? '0' + elem :
-                String(elem);
+        const addZero = elem => elem < 10 ? `0${elem}` : elem;
 
-        let dateStop = new Date(deadline).getTime();
-        let dateNow = new Date().getTime();
-        let timeRemaining = (dateStop - dateNow) / 1000;
+
+        const dateStop = new Date(deadline).getTime();
+        const dateNow = new Date().getTime();
+        const timeRemaining = (dateStop - dateNow) / 1000;
 
         let hours = addZero(Math.floor(timeRemaining / 60 / 60));
         let minutes = addZero(Math.floor((timeRemaining / 60) % 60));
@@ -27,7 +26,7 @@ const timer = (deadline) => {
 
     };
 
-    let updateClock = setInterval(() => {
+    const updateClock = setInterval(() => {
         let getTime = getTimeRemaning();
         console.log(getTime);
         timerHours.textContent = getTime.hours;
