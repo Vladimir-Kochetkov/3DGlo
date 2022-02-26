@@ -28,7 +28,6 @@ const timer = (deadline) => {
 
     const updateClock = setInterval(() => {
         let getTime = getTimeRemaning();
-        console.log(getTime);
         timerHours.textContent = getTime.hours;
         timerMinutes.textContent = getTime.minutes;
         timerSeconds.textContent = getTime.seconds;
