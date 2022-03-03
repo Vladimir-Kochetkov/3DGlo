@@ -2,17 +2,18 @@ const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content');
     const slides = document.querySelectorAll('.portfolio-item');
     const portfolioDots = document.querySelector('.portfolio-dots');
-    let dots;
+    /* let dots;
 
     slides.forEach(() => {
         const dot = document.createElement('li');
         dot.classList.add('dot');
         portfolioDots.appendChild(dot);
-    });
+    }); */
 
-    dots = document.querySelectorAll('.dot');
-
-    portfolioDots.children[0].classList.add('dot-active');
+    const dots = document.querySelectorAll('.dot');
+    /*  console.log(dots);
+ 
+     portfolioDots.children[0].classList.add('dot-active'); */
 
     const timeInterval = 2000;
     let currentSlide = 0;
@@ -35,9 +36,9 @@ const slider = () => {
             currentSlide = 0;
         }
 
-        if (currentSlide < 0) {
+        /* if (currentSlide < 0) {
             currentSlide = slides.length - 1;
-        }
+        } */
 
         nextSlide(slides, currentSlide, 'portfolio-item-active');
         nextSlide(dots, currentSlide, 'dot-active');
@@ -72,6 +73,15 @@ const slider = () => {
                 }
             });
         }
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+
         nextSlide(slides, currentSlide, 'portfolio-item-active');
         nextSlide(dots, currentSlide, 'dot-active');
     });
