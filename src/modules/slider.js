@@ -2,18 +2,18 @@ const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content');
     const slides = document.querySelectorAll('.portfolio-item');
     const portfolioDots = document.querySelector('.portfolio-dots');
-    /* let dots;
+    let dots;
 
     slides.forEach(() => {
         const dot = document.createElement('li');
         dot.classList.add('dot');
         portfolioDots.appendChild(dot);
-    }); */
+    });
 
-    const dots = document.querySelectorAll('.dot');
-    /*  console.log(dots);
- 
-     portfolioDots.children[0].classList.add('dot-active'); */
+    dots = document.querySelectorAll('.dot');
+    console.log(dots);
+
+    portfolioDots.children[0].classList.add('dot-active');
 
     const timeInterval = 2000;
     let currentSlide = 0;
