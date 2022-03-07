@@ -6,6 +6,7 @@ import validation from './modules/validation';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
 import calc from './modules/calc';
+import { animate } from './modules/helpers'
 
 timer('10 march 2022');
 menu();

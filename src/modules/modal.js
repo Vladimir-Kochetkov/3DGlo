@@ -1,3 +1,5 @@
+import { animate } from './helpers';
+
 const modal = () => {
     const modal = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
@@ -8,9 +10,25 @@ const modal = () => {
         count: -445,
         speed: 3
     };
+    console.log(modal);
+    console.log(buttons);
+    console.log(content);
 
     const showModal = () => {
-        modalData.start > modalData.end ?
+        animate({
+            duration: 1000,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                modalData.start > modalData.end ?
+                    modalData.count -= modalData.speed :
+                    modalData.count += modalData.speed;
+                content.style.transform = `translateY(${modalData.count}px)`;
+            }
+        });
+
+        /* modalData.start > modalData.end ?
             modalData.count -= modalData.speed :
             modalData.count += modalData.speed;
         content.style.transform = `translateY(${modalData.count}px)`;
@@ -19,7 +37,7 @@ const modal = () => {
             modalData.count > modalData.end :
             modalData.count < modalData.end) {
             requestAnimationFrame(showModal);
-        }
+        } */
     };
 
 
