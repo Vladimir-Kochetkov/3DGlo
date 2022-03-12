@@ -7,12 +7,12 @@ const validation = () => {
     const formsTel = document.querySelectorAll('input[type="tel"]');
 
     message.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[a-z0-9/.,+=_)({*&$%#@'"!~^:;?`<>№|\\})]/gi, "");
+        event.target.value = event.target.value.replace(/[^а-яё0-9 ,.]/gi, '');
     });
 
     topForms.forEach(input => {
         input.addEventListener('input', (event) => {
-            event.target.value = event.target.value.replace(/[a-z0-9/.,+=_)({*&$%#@'"!~^:;?`<>№|\\})]/gi, "");
+            event.target.value = event.target.value.replace(/[^а-яё ]/gi, '');
         });
     });
 
@@ -24,7 +24,7 @@ const validation = () => {
 
     formsTel.forEach(input => {
         input.addEventListener('input', (event) => {
-            event.target.value = event.target.value.replace(/[а-яёa-z/, +=_~{!*&$%#'."^:;?`<>№|\][\\}]/gi, "");
+            event.target.value = event.target.value.replace(/[^+\d\()\+]/g, '');
         });
     });
 
