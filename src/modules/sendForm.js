@@ -35,7 +35,6 @@ const sendForm = ({ formId, someElem = [] }) => {
         });
 
         someElem.forEach(elem => {
-            console.log(elem);
             const element = document.getElementById(elem.id);
 
             if (elem.type === 'block') {
@@ -45,20 +44,22 @@ const sendForm = ({ formId, someElem = [] }) => {
             }
         });
 
-        console.log('submit');
-
         if (validate(formElements)) {
+
             sendData(formBody)
                 .then(data => {
                     statusBlock.textContent = successText;
-
                     formElements.forEach(input => {
                         input.value = '';
                     });
+                    setTimeout(() => {
+                        statusBlock.textContent = '';
+                    }, 4000);
                 })
                 .catch(error => {
                     statusBlock.textContent = errorText;
                 });
+
         } else {
             alert('Данные не валидны!!!');
         }

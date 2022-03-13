@@ -10,9 +10,9 @@ const modal = () => {
         count: -445,
         speed: 3
     };
-    console.log(modal);
-    console.log(buttons);
-    console.log(content);
+    //console.log(modal);
+    //console.log(buttons);
+    //console.log(content); 
 
     const showModal = () => {
         animate({

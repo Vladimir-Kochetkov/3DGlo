@@ -35,10 +35,6 @@ const slider = () => {
             currentSlide = 0;
         }
 
-        /* if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        } */
-
         nextSlide(slides, currentSlide, 'portfolio-item-active');
         nextSlide(dots, currentSlide, 'dot-active');
     };
