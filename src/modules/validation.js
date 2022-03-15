@@ -6,9 +6,6 @@ const validation = () => {
     const formsEmail = document.querySelectorAll('input[type="email"]');
     const formsTel = document.querySelectorAll('input[type="tel"]');
 
-
-
-
     message.addEventListener('input', (event) => {
         event.target.value = event.target.value.replace(/[^а-яё0-9 ,.]/gi, '');
     });
@@ -17,7 +14,6 @@ const validation = () => {
         input.addEventListener('blur', (event) => {
             if (event.target.value.length > 1) {
                 let reg = event.target.value.replace(/[^а-яё ]/gi, '');
-                //reg = reg.replace(/ {2,}/g, '');
                 event.target.value = reg;
             } else {
                 event.target.value = '';
@@ -35,8 +31,8 @@ const validation = () => {
 
     formsTel.forEach(input => {
         input.addEventListener('blur', (event) => {
-            if (event.target.value.length > 11) {
-                event.target.value = event.target.value.replace(/[^+\d\()\+]/g, '');
+            if (event.target.value.length > 5 && event.target.value.length < 16) {
+                event.target.value = event.target.value.replace(/[^+\d\()]/g, '');
             } else {
                 event.target.value = '';
             }

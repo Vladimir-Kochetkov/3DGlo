@@ -7,28 +7,12 @@ const modal = () => {
     const modalData = {
         start: -445,
         end: 0,
-        count: -445,
+        count: -600,
         speed: 3
     };
-    //console.log(modal);
-    //console.log(buttons);
-    //console.log(content); 
 
     const showModal = () => {
-        animate({
-            duration: 1000,
-            timing(timeFraction) {
-                return timeFraction;
-            },
-            draw(progress) {
-                modalData.start > modalData.end ?
-                    modalData.count -= modalData.speed :
-                    modalData.count += modalData.speed;
-                content.style.transform = `translateY(${modalData.count}px)`;
-            }
-        });
-
-        /* modalData.start > modalData.end ?
+        modalData.start > modalData.end ?
             modalData.count -= modalData.speed :
             modalData.count += modalData.speed;
         content.style.transform = `translateY(${modalData.count}px)`;
@@ -37,10 +21,8 @@ const modal = () => {
             modalData.count > modalData.end :
             modalData.count < modalData.end) {
             requestAnimationFrame(showModal);
-        } */
+        }
     };
-
-
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -53,9 +35,7 @@ const modal = () => {
     });
 
     modal.addEventListener('click', (e) => {
-        if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
-            modal.style.display = 'none';
-        }
+        modal.style.display = 'none';
     });
 };
 

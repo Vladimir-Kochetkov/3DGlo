@@ -7,7 +7,6 @@ const timer = (deadline) => {
     const getTimeRemaning = () => {
         const addZero = elem => elem < 10 ? `0${elem}` : elem;
 
-
         const dateStop = new Date(deadline).getTime();
         const dateNow = new Date().getTime();
         const timeRemaining = (dateStop - dateNow) / 1000;
@@ -23,16 +22,18 @@ const timer = (deadline) => {
         }
 
         return { timeRemaining, hours, minutes, seconds };
-
     };
 
-    const updateClock = setInterval(() => {
+    const updateClock = () => {
         let getTime = getTimeRemaning();
         timerHours.textContent = getTime.hours;
         timerMinutes.textContent = getTime.minutes;
         timerSeconds.textContent = getTime.seconds;
-    }, 1000);
-
+        if (getTime.timeRemaining > 0) {
+            setTimeout(updateClock, 1000);
+        }
+    };
+    updateClock();
 };
 
 export default timer;
