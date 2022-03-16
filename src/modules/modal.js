@@ -1,13 +1,15 @@
-import { animate } from './helpers';
+//import { animate } from './helpers';
 
 const modal = () => {
     const modal = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
+    const closeBtn = document.querySelector('.popup-close');
     const content = document.querySelector('.popup-content');
+
     const modalData = {
         start: -445,
         end: 0,
-        count: -600,
+        count: -445,
         speed: 3
     };
 
@@ -34,7 +36,7 @@ const modal = () => {
         });
     });
 
-    modal.addEventListener('click', (e) => {
+    closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 };
